@@ -1,0 +1,3 @@
+[submodule "Leetcode-Go"]
+	path = Leetcode-Go
+	url = git@github.com:halfrost/LeetCode-Go.git
