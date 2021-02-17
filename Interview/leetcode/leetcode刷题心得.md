@@ -24,5 +24,5 @@
 例题：
 1. [209.长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/) 
     - 对于非定长的数组，灵活分析决定是否能够采用滑动窗口
-    - 
-2. 
+    - 两种方法：<br>1. 固定window长度，依次遍历，有合适就返回；再改变window长度进行下一次遍历;<br>2. 对一个窗口不断增长直到和超过target，然后逐个减去window的前面数字直导小于target，开始下一次
+2. [1456.定长子串中元音的最大数目](https://leetcode-cn.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/)<br>典型窗口
