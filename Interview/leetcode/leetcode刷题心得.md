@@ -1,4 +1,5 @@
 # [点击去B站：Leetcode力扣必备算法知识和练习题|手画图解版](https://b23.tv/bIQs1w)
+[代码详见 ./ leetcodeTry.java](leetcodeTry.java)
 ## 双指针
 1. 普通指针：两个指针向一个方向移动
 2. 对撞指针：两个指针从两边来。例如[881](https://leetcode-cn.com/problems/boats-to-save-people/)。先调用Arrays.sort(people)对数组进行排序，再对撞。
