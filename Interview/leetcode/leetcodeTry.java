@@ -1,4 +1,19 @@
 class Solution{
+    //1004
+    public int longestOnes(int[] A, int K) {
+        int left = 0, lsum = 0, rsum = 0;
+        int ans = 0;
+        for (int right = 0; right < A.length; ++right) {
+            rsum += 1 - A[right];
+            while (lsum < rsum - K) {
+                lsum += 1 - A[left];
+                ++left;
+            }
+            ans = Math.max(ans, right - left + 1);
+        }
+        return ans;
+    }    
+
     //1456
     public boolean isVowel(char ch){
         if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'){
