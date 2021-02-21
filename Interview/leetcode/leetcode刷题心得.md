@@ -26,3 +26,4 @@
     - 对于非定长的数组，灵活分析决定是否能够采用滑动窗口
     - 两种方法：<br>1. 固定window长度，依次遍历，有合适就返回；再改变window长度进行下一次遍历;<br>2. 对一个窗口不断增长直到和超过target，然后逐个减去window的前面数字直导小于target，开始下一次
 2. [1456.定长子串中元音的最大数目](https://leetcode-cn.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/)<br>典型窗口
+3. [1004.最大连续的1个数III](https://leetcode-cn.com/problems/max-consecutive-ones-iii/solution/hua-dong-chuang-kou-de-liang-chong-jie-j-8ses/)一个指向窗口左边（记作L），一个指向窗口右边（记作R），不断右移R直到[L, R]内的0个数大于K，然后右移L直到0个数等于K，判断是否更新答案
