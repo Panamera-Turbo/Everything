@@ -27,3 +27,34 @@
     - 两种方法：<br>1. 固定window长度，依次遍历，有合适就返回；再改变window长度进行下一次遍历;<br>2. 对一个窗口不断增长直到和超过target，然后逐个减去window的前面数字直导小于target，开始下一次
 2. [1456.定长子串中元音的最大数目](https://leetcode-cn.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/)<br>典型窗口
 3. [1004.最大连续的1个数III](https://leetcode-cn.com/problems/max-consecutive-ones-iii/solution/hua-dong-chuang-kou-de-liang-chong-jie-j-8ses/)一个指向窗口左边（记作L），一个指向窗口右边（记作R），不断右移R直到[L, R]内的0个数大于K，然后右移L直到0个数等于K，判断是否更新答案
+
+## 递归
+自己调用自己<br>注意时间复杂度较高<br>例题：
+1. 斐波拉契数列
+2. [206.翻转链表](https://leetcode-cn.com/problems/reverse-linked-list)
+3. [344.反转字符串](https://leetcode-cn.com/problems/reverse-string)
+## 分治法
+将大卫提分解为小问题，当然这里也用到了递归的思想<br>例题：
+1. 归并排序
+2. [169.多数数字](https://leetcode-cn.com/problems/majority-element)这里有下面几种方法：
+   - 摩尔投票法：不同的数字相互抵消，最后剩下的就是最多的（前提：最多的数字大于数字总数的一般）
+   - 排序：排序后选择 $nums[\dfrac{n}{2}]$, 一定为所求
+   - 哈希表：统计，排序
+   - 因为超过$ \lfloor \dfrac{n}{2} \rfloor $的数组下标被众数占据了，这样我们随机挑选一个下标对应的元素并验证，有很大的概率能找到众数。因此，由于一个给定的下标对应的数字很有可能是众数，我们随机挑选一个下标，检查它是否是众数，如果是就返回，否则继续随机挑选。
+3. [53.最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
+   - 动态规划：比较一段数组的和和下一个数，选取较大的，同时更新
+   - 分治。没看懂？？？？
+## 回溯法
+
+## 深度优先
+
+## 广度优先
+
+## 并查集
+### 并查集优化
+
+## 贪心
+
+## 记忆化搜索
+
+## 动态规划

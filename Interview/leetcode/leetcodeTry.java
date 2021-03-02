@@ -1,6 +1,106 @@
+import java.util.Random;
 import java.util.TreeMap;
 
+
 class Solution {
+    //215
+
+    //53
+    public int maxSubArray(int[] nums) {
+        int ans = nums[0];
+        int sum = 0;
+        for(int x : nums){
+            sum = Math.max(sum + x, x);
+            ans = Math.max(sum, ans);
+        }                           
+        return ans;
+    }
+    
+    //169
+    //方法1
+    private int randRange(Random rand, int min, int max) {
+        return rand.nextInt(max - min) + min;
+    }
+
+    private int countOccurences(int[] nums, int num) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == num) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int majorityElement_methodOne(int[] nums) {
+        Random rand = new Random();
+
+        int majorityCount = nums.length / 2;
+
+        while (true) {
+            int candidate = nums[randRange(rand, 0, nums.length)];
+            if (countOccurences(nums, candidate) > majorityCount) {
+                return candidate;
+            }
+        }
+    }
+
+    //方法2
+    public int majorityElement_methodTwo(int[] nums) {
+        int more = nums[0];
+        int counter = 0;
+        int p = 0;
+
+        while(p < nums.length){
+            if(nums[p] == more){
+                ++counter;
+            }else if(counter > 0){
+                --counter;
+            }else{
+                ++counter;
+                more = nums[p];
+            }
+            p++;
+        }
+
+        return more;
+    }
+    //344
+    public void reverseString(char[] s) {
+        int i = 0, j = s.length-1;
+        char ch;
+        while(i <= j){
+            ch = s[i];
+            s[i] = s[j];
+            s[j] = ch;
+            i++;
+            j--;
+        }
+    }
+    //206
+    class ListNode {
+        int val;
+        ListNode next;
+        ListNode() {}
+        ListNode(int val) { this.val = val; }
+        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+    
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null)return head;
+
+        ListNode p = reverseList(head.next);
+
+        head.next.next = head;
+        head.next = null;
+        
+        return p;
+    }
+    //509
+    public int fib(int n) {
+        if(n == 0)return 0;
+        return n == 1 ? 1 : fib(n-1) + fib(n - 2);
+    }
     //1438
     public int longestSubarray(int[] nums, int limit) {
         TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
