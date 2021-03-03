@@ -40,12 +40,73 @@
    - 摩尔投票法：不同的数字相互抵消，最后剩下的就是最多的（前提：最多的数字大于数字总数的一般）
    - 排序：排序后选择 $nums[\dfrac{n}{2}]$, 一定为所求
    - 哈希表：统计，排序
-   - 因为超过$ \lfloor \dfrac{n}{2} \rfloor $的数组下标被众数占据了，这样我们随机挑选一个下标对应的元素并验证，有很大的概率能找到众数。因此，由于一个给定的下标对应的数字很有可能是众数，我们随机挑选一个下标，检查它是否是众数，如果是就返回，否则继续随机挑选。
+   - 因为超过$\lfloor \dfrac{n}{2} \rfloor$ 的数组下标被众数占据了，这样我们随机挑选一个下标对应的元素并验证，有很大的概率能找到众数。因此，由于一个给定的下标对应的数字很有可能是众数，我们随机挑选一个下标，检查它是否是众数，如果是就返回，否则继续随机挑选。
 3. [53.最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
    - 动态规划：比较一段数组的和和下一个数，选取较大的，同时更新
    - 分治。没看懂？？？？
-## 回溯法
 
+4. [215.数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)<br>两种方法
+   - 快速排序
+   - 堆排序：建立一个大根堆，做 k−1 次删除操作后堆顶元素就是我们要找的答案
+## 回溯法
+1. [78.子集](https://leetcode-cn.com/problems/subsets/)<br>[具体题解](https://leetcode-cn.com/problems/subsets/solution/er-jin-zhi-wei-zhu-ge-mei-ju-dfssan-chong-si-lu-9c/)
+   - 集合中的每个元素都可以选或者不选，用二进制和位运算来表示
+      ```
+      class Solution {
+         List<Integer> t = new ArrayList<Integer>();
+         List<List<Integer>> ans = new ArrayList<List<Integer>>();
+
+         public List<List<Integer>> subsets(int[] nums) {
+            int n = nums.length;
+            for (int mask = 0; mask < (1 << n); ++mask) {
+                  t.clear();
+                  for (int i = 0; i < n; ++i) {
+                     if ((mask & (1 << i)) != 0) {
+                        t.add(nums[i]);
+                     }
+                  }
+                  ans.add(new ArrayList<Integer>(t));
+               }
+               return ans;
+            }
+         }   
+      ```
+   - 逐个枚举，空集的幂集只有空集，每增加一个元素，让之前幂集中的每个集合，追加这个元素，就是新增的子集。
+      ```
+      //循环枚举
+      public static List<List<Integer>> enumerate(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        res.add(new ArrayList<Integer>());
+        for (Integer n : nums) {
+            int size = res.size();
+            for (int i = 0; i < size; i++) {
+                List<Integer> newSub = new ArrayList<Integer>(res.get(i));
+                newSub.add(n);
+                res.add(newSub);
+            }
+         }
+         return res;
+      }
+
+      //递归枚举
+      public static void recursion(int[] nums, int i, List<List<Integer>> res) {
+         if (i >= nums.length) return;
+         int size = res.size();
+         for (int j = 0; j < size; j++) {
+               List<Integer> newSub = new ArrayList<Integer>(res.get(j));
+               newSub.add(nums[i]);
+               res.add(newSub);
+         }
+         recursion(nums, i + 1, res);
+      }
+      ```
+   
+   - 
+2. []()<br>
+
+3. []()<br>
+
+4. []()<br>
 ## 深度优先
 
 ## 广度优先

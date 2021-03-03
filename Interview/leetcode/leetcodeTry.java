@@ -1,10 +1,21 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.TreeMap;
 
 
 class Solution {
+    //78
+    public List<List<Integer>> subsets(int[] nums) {
+        // List list = new List<List>();
+        
+    }
     //215
-
+    public int findKthLargest(int[] nums, int k) {
+        Arrays.sort(nums);
+        return nums[nums.length-k];
+    }
     //53
     public int maxSubArray(int[] nums) {
         int ans = nums[0];
