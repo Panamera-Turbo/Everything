@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.Stack;
 import java.util.TreeMap;
 
 
@@ -236,6 +237,46 @@ class Solution {
         }
 
         return res;
+    }
+}
+
+class MyQueue {
+    /**
+    * Your MyQueue object will be instantiated and called as such:
+    * MyQueue obj = new MyQueue();
+    * obj.push(x);
+    * int param_2 = obj.pop();
+    * int param_3 = obj.peek();
+    * boolean param_4 = obj.empty();
+    */
+    /** Initialize your data structure here. */
+    Stack inStack, outStack;
+
+    public MyQueue() {
+        this.inStack = new Stack<>();
+        this.outStack = new Stack<>();
+    }
+    
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        inStack.push(x);
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        if(outStack.empty()){
+            
+        }
+    }
+    
+    /** Get the front element. */
+    public int peek() {
+
+    }
+    
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+
     }
 }
 
